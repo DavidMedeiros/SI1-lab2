@@ -1,32 +1,62 @@
 $(document).ready(function(){
-
 	var quantidadeDeAtividades = 0;
 	var quantidadeDeAtividadesPendentes = 0; 
 
+	// Adiciona atividades predefinidas à agenda de tarefas
 	addAtividadeALista("Estudar para lógica");
 	addAtividadeALista("Estudar probabilidade");
 	addAtividadeALista("Comprar Joanne on itunes");
 	
+	// adiciona um novo item à agenda de tarefas
 	$('#addItem').on('click', addItem);
 
+	// faz a contagem de checkbox marcados e mostra no html
 	$('#lista_atividades').on('change', '.completeItem', completeItem);
+
+	// deleta item da agenda de tarefas
 	$('#lista_atividades').on('click', '.deleteItem', deleteItem);
+
+	// edita uma atividade já está na agenda de tarefas
 	$('#lista_atividades').on('click', '.textoAtividade', startEditing);
+
+	// finaliza a edição da atividade já cadastrada na agenda de tarefas
 	$('#lista_atividades').on('click', '.saveItem', stopEditing);
 	
-	$('#aumentar_font').on('click', aumentarFonte);
-	$('#diminuir_font').on('click', diminuirFonte);
-	$('#alterar_fundo').on('click', alterarFundo);
-	$('#restaurar_configuracoes').on('click', restaurarConfiguracoes);
-	
+	// aumenta o tamanho das fontes das atividades cadastradas na agenda de tarefas
+	$('#aumentar_font').on('click', aumentaFonte);
 
-	$('#novaAtividade').on('keypress', function(event) {
+	// diminui o tamanho das fontes das atividades cadastradas na agenda de tarefas
+	$('#diminuir_font').on('click', diminuiFonte);
+
+	// altera o plano de fundo da página
+	$('#alterar_fundo').on('click', alteraFundo);
+
+	// restaura as configuraçõe iniciais 
+	$('#restaurar_configuracoes').on('click', restauraConfiguracoes);
+	
+	// adiciona um novo item à agenda de tarefas pressionando o enter
+	$('#nova_atividade').on('keypress', function(event) {
 		if(event.which === 13) {
 			addItem();
 			event.preventDefault();
 		}
 
 	}); 
+
+	function addItem(event) {
+		var nova_atividade = $('#nova_atividade').val();
+		addAtividadeALista(nova_atividade);
+		$('#nova_atividade').val("");
+	}
+
+	function addAtividadeALista(atividade) {
+		$('#lista_atividades').append('<li><input class="completeItem" id = "check" type = "checkbox"><span class = "textoAtividade">' 
+										+ atividade
+										+ '</span> <input type = "text" class = "editText"><button class = "btn btn-success saveItem">Ok</button><span class ="glyphicon glyphicon-trash deleteItem"></span> </li>');
+		quantidadeDeAtividades++;
+		quantidadeDeAtividadesPendentes++;
+		atualizarQuantidadeDeAtividades();
+	}
 
 	function startEditing(event) {
 		var taskLi = $(this).parent();
@@ -46,13 +76,6 @@ $(document).ready(function(){
 		taskLi.find('.textoAtividade').show();
 	}
 
-	function addItem(event) {
-		var novaAtividade = $('#novaAtividade').val();
-		addAtividadeALista(novaAtividade);
-		$('#novaAtividade').val("");
-
-	}
-
 	function deleteItem(event){
 		$(this).parent().remove();
 		quantidadeDeAtividades--;
@@ -61,7 +84,6 @@ $(document).ready(function(){
 
   		quantidadeDeAtividadesPendentes = quantidadeDeAtividades - qntCheckboxSelecionados;
 		atualizarQuantidadeDeAtividades();
-		
 	}
 
 	function completeItem(event){
@@ -88,15 +110,6 @@ $(document).ready(function(){
 	  	return selecionados;
 	}
 
-	function addAtividadeALista(atividade) {
-		var checkboxId = quantidadeDeAtividades;
-		$('#lista_atividades').append('<li><input class="completeItem" id = "check" type = "checkbox"><span class = "textoAtividade">' 
-										+ atividade
-										+ '</span> <input type = "text" class = "editText"><button class = "btn btn-success saveItem">Ok</button><span class ="glyphicon glyphicon-trash deleteItem"></span> </li>');
-		quantidadeDeAtividades++;
-		quantidadeDeAtividadesPendentes++;
-		atualizarQuantidadeDeAtividades();
-	}
 
 	function atualizarQuantidadeDeAtividades(){
 		atualizarQuantidadeAtvCadastradas();
@@ -114,19 +127,19 @@ $(document).ready(function(){
 		progressBar.width( percentagem - ((quantidadeDeAtividadesPendentes / quantidadeDeAtividades)  * percentagem) + '%');
 	}
 
-	function aumentarFonte(){
+	function aumentaFonte(){
         $('#lista_atividades').css({"font-size":"18px"});
 	}
 
-	function diminuirFonte(){
+	function diminuiFonte(){
         $('#lista_atividades').css({"font-size":"14px"});
 	}
 
-	function alterarFundo(){
+	function alteraFundo(){
 		$('body').css("background-color","#cfd8dc");	
 	}
 
-	function restaurarConfiguracoes(){
+	function restauraConfiguracoes(){
 		$('#lista_atividades').css({"font-size":"14px"});
 		$('body').css("background-color", "#ffffff");	
 	}

@@ -6,16 +6,25 @@ span:hover {
 	font-weight: normal;
 }
 
+input[type=checkbox] {
+	margin-right: 15px;
+}
+
+
 .done {
 	text-decoration: line-through;
 	opacity: 0.5;
 }
 
+.deleteItem {
+	float: right;
+	cursor: pointer;
+	color: #d32f2f;
+}
 #lista_atividades {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
-
 }
 
 #lista_atividades li {
@@ -26,7 +35,6 @@ span:hover {
 #atividades_cadastradas {
 	position: relative;
 	float:left;
-	
 }
 
 #num_cadastradas {
@@ -44,17 +52,6 @@ span:hover {
 	position: relative;
 	float: right;
 	margin-left: 20px;
-
-}
-
-.deleteItem {
-	float: right;
-	cursor: pointer;
-	color: #d32f2f;
-}
-
-input[type=checkbox] {
-	margin-right: 15px;
 }
 
 .editText {
@@ -75,7 +72,3 @@ input[type=checkbox] {
 	top: 90%;
 	left: -0.5%;
 }
-
-.btn{
-}
-

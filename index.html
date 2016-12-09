@@ -1,3 +1,5 @@
+<!-- Laboratorio 2 - SI 1 / DAVID DE MEDEIROS SOUZA 116210018-->
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -21,25 +23,26 @@
 
 	    <title>Agenda de Tarefas</title>
 	</head>
-	<body>
 
+	<body>
 		<div class = "container">
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3 col-xs-6 col-xs-offset-3"> 
 					<div class="page-header">
 						<h1><span>Agenda</span> de Tarefas</h1>
+						
 						<form class="form-horizontal">
 							<div class="form-group">
 								<div class="col-sm-10">
-									<input type="text" class="form-control" id="novaAtividade" placeholder="Especifique uma atividade" data-toggle="tooltip" title="Selecione o campo e digite uma atividade">
+									<input type="text" class="form-control" id="nova_atividade" placeholder="Especifique uma atividade" data-toggle="tooltip" title="Selecione o campo e digite uma atividade">
 								</div>	
-								<button type="button" id="addItem" class="btn btn-primary" data-toggle="tooltip" title="Clique para adicionar uma atividade" >Adicionar</button>
+
+								<button type="button" id="addItem" class="btn btn-primary" data-toggle="tooltip" title="Clique para adicionar uma atividade">Adicionar</button>
 							</div>
 						</form>
 
 						<div class="progress">
-							<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-							    <span class="sr-only">40% Complete (success)</span>
+							<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
 							</div>
 						</div>
 
@@ -48,15 +51,16 @@
 								<span>Atividades Cadastradas:</span>
 							</div>
 
-							<div id = num_cadastradas></div>
+							<div id = "num_cadastradas"></div>
 
-							<div id = num_pendentes></div>
+							<div id = "num_pendentes"></div>
 
 							<div id = "atividades_pendentes">
 								<span>Atividades Pendentes:</span>
 							</div>
 						</div>
 					</div>
+
 					<ul id = "lista_atividades"></ul>
 				</div>
 			</div>
@@ -66,10 +70,12 @@
 		<div class="dropup">
 		    <div class="btn-group">
 	            <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle">Menu de Configuracoes <span class="caret"></span></button>
+	            
 	            <ul class="dropdown-menu">
 	            	<li><a href="#" id="alterar_fundo">
 	            		<span class ="glyphicon glyphicon-tint"></span>  Alterar cor do background</a>
 	            	</li>
+
 	            	<li><a href="#" id="aumentar_font">
 	               		<span class ="glyphicon glyphicon-plus"></span>  Aumentar Fonte</a>
 	               	</li>
@@ -83,14 +89,13 @@
 	                </li>
 
 	                <li class="divider"></li>
+
 	                <li><a href="https://github.com/DavidMedeiros">
 	                	<span class ="glyphicon glyphicon-user"></span>  David Souza</a>
 	                </li>
-
-	                
 	            </ul>
        		</div>
 		</div>
-	</body>
 
+	</body>
 </html>
