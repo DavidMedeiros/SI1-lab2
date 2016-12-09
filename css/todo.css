@@ -1,0 +1,81 @@
+span{
+	font-weight: bold;
+}
+
+span:hover {
+	font-weight: normal;
+}
+
+.done {
+	text-decoration: line-through;
+	opacity: 0.5;
+}
+
+#lista_atividades {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+
+}
+
+#lista_atividades li {
+	padding: 20px 0px 20px 0px;
+	border-bottom: 1px dashed #eee;
+}
+
+#atividades_cadastradas {
+	position: relative;
+	float:left;
+	
+}
+
+#num_cadastradas {
+	position: relative;
+	float:left;
+	margin-left: 20px;
+}
+
+#atividades_pendentes{
+	position: relative;
+	float: right;
+}
+
+#num_pendentes{
+	position: relative;
+	float: right;
+	margin-left: 20px;
+
+}
+
+.deleteItem {
+	float: right;
+	cursor: pointer;
+	color: #d32f2f;
+}
+
+input[type=checkbox] {
+	margin-right: 15px;
+}
+
+.editText {
+	display: none;
+}
+
+.saveItem {
+	display: none;
+	margin-left: 20px;
+}
+
+.contadores {
+	margin-bottom: 40px;
+}
+
+.dropup{
+	position:fixed;
+	top: 90%;
+	left: -0.5%;
+}
+
+.btn{
+}
+
